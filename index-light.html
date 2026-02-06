@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:MEET - 단골을 만드는 가장 빠른 길, 제휴</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="fonts/pretendard.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-light.css">
+</head>
+<body class="theme-light">
+    <!-- Fixed Header -->
+    <header class="header header-light" id="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="assets/remmet_logo_white.svg" alt="Re:MEET" class="logo-img logo-white">
+                <img src="assets/remmet_logo_dark.svg" alt="Re:MEET" class="logo-img logo-dark">
+            </div>
+            <nav class="nav">
+                <button class="btn-header btn-primary-header">제휴 신청하기</button>
+                <button class="btn-header btn-secondary-header">로그인</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (light) -->
+    <section class="hero" data-theme="light">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">운영은 더 쉽게,<br class="mobile-br"> 복지 체감은 더 높게</h1>
+            <p class="hero-subtitle">복잡한 구축 비용 없이, 우리 임직원만을 위한 제휴 혜택을<br>리밋과 함께 제공하세요.</p>
+            <div class="hero-buttons">
+                <button class="btn-hero btn-dark">제휴 신청하기</button>
+                <a href="index.html" class="btn-hero btn-dark">로그인하기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3가지 약속 Section (light) -->
+    <section class="promises" data-theme="light">
+        <div class="promises-bg"></div>
+        <h2 class="promises-title">리밋 도입 후,<br class="mobile-br"> 이렇게 달라집니다</h2>
+        <div class="promises-cards">
+            <div class="promise-card promise-card-1">
+                <div class="promise-card-header">
+                    <div class="promise-card-left">
+                        <span class="promise-card-title">복지 만족도 200%</span>
+                    </div>
+                    <div class="promise-card-right">
+                        <p>직원들이 직접 고른</p>
+                        <p>프리미엄 혜택으로</p>
+                        <p>'진짜 복지'를 실감합니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="promise-card promise-card-2">
+                <div class="promise-card-header">
+                    <div class="promise-card-left">
+                        <span class="promise-card-title">관리 업무 90% 감소</span>
+                    </div>
+                    <div class="promise-card-right">
+                        <p>수기 관리, 엑셀 정리 끝!</p>
+                        <p>자동화된 대시보드로</p>
+                        <p>업무 시간을 혁신적으로 줄입니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="promise-card promise-card-3">
+                <div class="promise-card-header">
+                    <div class="promise-card-left">
+                        <span class="promise-card-title">도입 비용 0원</span>
+                    </div>
+                    <div class="promise-card-right">
+                        <p>시스템 구축비 없이</p>
+                        <p>클릭 몇 번으로</p>
+                        <p>우리 기업만의 복지몰이 생성됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 기존 한계 → 폐쇄형 플랫폼 통합 섹션 (dark) -->
+    <section class="limit-solution" data-theme="dark">
+        <!-- Limitation Content -->
+        <div class="limit-content">
+            <h2 class="limit-title section-title">
+                <span class="text-white">아직도 엑셀과 수기로</span><span class="text-light-dark">복지를 관리하시나요?</span>
+            </h2>
+            <div class="limit-cards">
+                <div class="card-dark limit-card">
+                    <h3>운영의 비효율</h3>
+                    <p>엑셀과 종이를 이용한 수기 운영으로<br>정보 관리와 구성원 안내의 어려움</p>
+                </div>
+                <div class="card-dark limit-card">
+                    <h3>낮은 활용도</h3>
+                    <p>한정된 상품 구성으로 선택지가 적고,<br>운영 리소스 대비 낮은 임직원 사용률</p>
+                </div>
+                <div class="card-dark limit-card">
+                    <h3>체감되지 않는 복지</h3>
+                    <p>복지는 존재하지만<br>정작 직원들이 필요할 때 쓰기 어려운 구조</p>
+                </div>
+            </div>
+        </div>
+        <!-- Solution Content (overlay) -->
+        <div class="solution-content">
+            <h2 class="solution-title section-title">
+                <span class="text-white">폐쇄형 제휴 플랫폼</span><span class="text-light-dark">으로 새로운 대안을 제시합니다.</span>
+            </h2>
+            <div class="solution-cards">
+                <div class="card-gradient-blue solution-card">
+                    <h3>기업·단체 전용 혜택</h3>
+                    <p>간편한 인증으로 우리 조직 구성원만<br>이용 가능한 폐쇄형 제휴 혜택 제공</p>
+                </div>
+                <div class="card-gradient-blue solution-card">
+                    <h3>관리자 대시보드</h3>
+                    <p>이용 현황을 실시간으로 확인하고<br>자동 집계된 통계 데이터를 한눈에 파악</p>
+                </div>
+                <div class="card-gradient-blue solution-card">
+                    <h3>조직 맞춤형 구성</h3>
+                    <p>원하는 입점업체에 직접 제휴를 제안하고<br>우리 조직만을 위한 전용 혜택 조율 가능</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 슬라이더 Section (light) -->
+    <section class="services" data-theme="light">
+        <div class="services-bg"></div>
+        <div class="services-content">
+            <div class="services-slider">
+                <div class="slide slide-1 active" data-index="0">
+                    <div class="slide-bg" style="background-image: url('assets/slide-1.jpg');"></div>
+                    <div class="slide-content">
+                        <h3 class="slide-title">간편 인증</h3>
+                        <p class="slide-subtitle">명함, 사원증, 소속 이메일 등으로<br>쉽고 빠르게 멤버 인증</p>
+                    </div>
+                </div>
+                <div class="slide slide-2" data-index="1">
+                    <div class="slide-bg" style="background-image: url('assets/slide-2.jpg');"></div>
+                    <div class="slide-content">
+                        <h3 class="slide-title">위치 기반 서비스</h3>
+                        <p class="slide-subtitle">현 위치 기반 주변 제휴처 탐색으로<br>최적의 혜택을 빠르게 검색</p>
+                    </div>
+                </div>
+                <div class="slide slide-3" data-index="2">
+                    <div class="slide-bg" style="background-image: url('assets/slide-3.jpg');"></div>
+                    <div class="slide-content">
+                        <h3 class="slide-title">원스톱 예약</h3>
+                        <p class="slide-subtitle">예약부터 결제까지<br>한 번에 처리되는 간편한 프로세스</p>
+                    </div>
+                </div>
+                <div class="slide slide-4" data-index="3">
+                    <div class="slide-bg" style="background-image: url('assets/slide-4.jpg');"></div>
+                    <div class="slide-content">
+                        <h3 class="slide-title">운영 업무 최적화</h3>
+                        <p class="slide-subtitle">예약 관리부터 정산까지<br>비즈니스 센터에서 한눈에</p>
+                    </div>
+                </div>
+                <div class="slide slide-5" data-index="4">
+                    <div class="slide-bg" style="background-image: url('assets/slide-5.jpg');"></div>
+                    <div class="slide-content">
+                        <h3 class="slide-title">ESG 및 사회적 가치</h3>
+                        <p class="slide-subtitle">지역 소상공인 상생 및<br>친환경 서비스 연계</p>
+                    </div>
+                </div>
+            </div>
+            <div class="services-nav">
+                <button class="nav-btn nav-prev" aria-label="이전 슬라이드">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="nav-btn nav-next" aria-label="다음 슬라이드">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Card View -->
+        <div class="services-cards-mobile">
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>간편 인증</h3>
+                <p>기업 임직원 간편 인증으로<br>별도 가입 없이 즉시 이용 가능</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 21C16 17 20 13.4183 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 13.4183 8 17 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>위치 기반 서비스</h3>
+                <p>현 위치 기반 주변 제휴처 탐색으로<br>최적의 혜택을 빠르게 검색</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>원스톱 예약</h3>
+                <p>예약부터 결제까지<br>한 번에 처리되는 간편한 프로세스</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 17H15M9 13H15M9 9H10M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>운영 업무 최적화</h3>
+                <p>예약 관리부터 정산까지<br>비즈니스 센터에서 한눈에</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3L14.5 8.5L21 9.5L16.5 14L17.5 21L12 18L6.5 21L7.5 14L3 9.5L9.5 8.5L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>ESG 및 사회적 가치</h3>
+                <p>지역 소상공인 상생 및<br>친환경 서비스 연계</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 입점 프로세스 Section (dark) -->
+    <section class="process" data-theme="dark">
+        <h2 class="section-title-center-white">단 6단계로 끝나는 간편한 시작</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-badge">01</div>
+                <h3>제휴 등록 신청</h3>
+                <p>기업·단체<br>정보 입력</p>
+            </div>
+            <div class="process-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4L20 12L12 20" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="process-step">
+                <div class="step-badge">02</div>
+                <h3>제휴 승인</h3>
+                <p>검토 후<br>평균 3일 이내 승인</p>
+            </div>
+            <div class="process-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4L20 12L12 20" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="process-step">
+                <div class="step-badge">03</div>
+                <h3>인증 방법 선택</h3>
+                <p>구성원 인증<br>방법 선택</p>
+            </div>
+            <div class="process-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4L20 12L12 20" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="process-step">
+                <div class="step-badge">04</div>
+                <h3>제휴 협의</h3>
+                <p>원하는 입점업체와<br>전용 혜택 조율</p>
+            </div>
+            <div class="process-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4L20 12L12 20" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="process-step">
+                <div class="step-badge">05</div>
+                <h3>멤버 인증</h3>
+                <p>간편한 인증절차로<br>빠르게 인증</p>
+            </div>
+            <div class="process-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4L20 12L12 20" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="process-step process-step-highlight">
+                <div class="step-badge">06</div>
+                <h3>전용 혜택 노출</h3>
+                <p>구성원에게<br>전용 혜택 자동 노출</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (light) -->
+    <section class="faq" data-theme="light">
+        <div class="faq-bg">
+            <div class="faq-blob faq-blob-1"></div>
+            <div class="faq-blob faq-blob-2"></div>
+        </div>
+        <div class="faq-content">
+            <h2 class="section-title-black">
+                <span class="text-bold">FAQ</span><span class="text-regular"> | 자주 묻는 질문</span>
+            </h2>
+            <p class="faq-subtitle">제휴 전 궁금한 사항들</p>
+        </div>
+        <div class="faq-cards-wrapper">
+            <div class="faq-cards-row row-right">
+                <div class="faq-track">
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">인증 방법은 고정인가요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>다양한 인증 방법을 제공하고 있어,<br>속성에 맞게 선택하실 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">제휴 비용은 얼마인가요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>제휴 신청/중개를 위한<br>별도 비용은 없습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">입점 업체와 제휴 혜택은 고정인가요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>원하는 입점업체를 선택하고<br>혜택은 협의할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">관리자가 구성원의 결제 내역을 볼 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>관리자는 멤버십 전체의 성과만 확인 할 수 있으며,<br>개인의 결제 정보는 볼 수 없습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">혜택을 여러 번 사용할 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>제휴 협의에 따라 맞춤 설계된 혜택을<br>제한 없이 사용할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">인증 방법은 고정인가요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>다양한 인증 방법을 제공하고 있어,<br>속성에 맞게 선택하실 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">제휴 비용은 얼마인가요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>제휴 신청/중개를 위한<br>별도 비용은 없습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">입점 업체와 제휴 혜택은 고정인가요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>원하는 입점업체를 선택하고<br>혜택은 협의할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">관리자가 구성원의 결제 내역을 볼 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>관리자는 멤버십 전체의 성과만 확인 할 수 있으며,<br>개인의 결제 정보는 볼 수 없습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">혜택을 여러 번 사용할 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>제휴 협의에 따라 맞춤 설계된 혜택을<br>제한 없이 사용할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-cards-row row-left">
+                <div class="faq-track">
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">제휴 기업은 어떻게 연결되나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>리밋에서 직접 매칭하거나<br>원하는 기업에 제휴 요청이 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">가격 설정은 자유롭게 할 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>네, 업체에서 자유롭게<br>혜택 및 가격을 설정할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">고객 데이터를 받을 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>네, 이용 고객 이력을 확인하고<br>재방문 마케팅에 활용 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">입점 승인은 얼마나 걸리나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>서류 검토 후<br>평균 3일 이내 승인됩니다.</p>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">제휴 기업은 어떻게 연결되나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>리밋에서 직접 매칭하거나<br>원하는 기업에 제휴 요청이 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">가격 설정은 자유롭게 할 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>네, 업체에서 자유롭게<br>혜택 및 가격을 설정할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">고객 데이터를 받을 수 있나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>네, 이용 고객 이력을 확인하고<br>재방문 마케팅에 활용 가능합니다.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-q-row">
+                            <span class="faq-q-badge">Q</span>
+                            <span class="faq-question">입점 승인은 얼마나 걸리나요?</span>
+                        </div>
+                        <div class="faq-a-row">
+                            <span class="faq-a-label">A.</span>
+                            <p>서류 검토 후<br>평균 3일 이내 승인됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (light) -->
+    <footer class="footer" data-theme="light">
+        <div class="footer-content">
+            <h2 class="footer-title">이제 귀사의 복지 서비스도<br>리밋을 통해 변화할 차례입니다.</h2>
+            <button class="btn-footer">리밋 제휴 신청하기</button>
+        </div>
+        <div class="footer-logo">
+            <img src="assets/remmet_logo_dark.svg" alt="Re:MEET" class="footer-logo-img">
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="맨 위로 이동">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

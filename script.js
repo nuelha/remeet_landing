@@ -1,13 +1,61 @@
 // Re:MEET Landing Page - GSAP Animations
 gsap.registerPlugin(ScrollTrigger);
 
+// Device detection - check for touch device, not just screen size
+function isDesktop() {
+    // Check if device has touch capability
+    const hasTouch = 'ontouchstart' in window ||
+                     navigator.maxTouchPoints > 0 ||
+                     navigator.msMaxTouchPoints > 0;
+
+    // Check pointer type (coarse = touch, fine = mouse)
+    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+    // Check User Agent for mobile/tablet keywords
+    const mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(navigator.userAgent);
+
+    // Check if it's iPad (iPadOS 13+ reports as Mac)
+    const isIPad = navigator.userAgent.includes('Mac') && hasTouch;
+
+    // It's desktop only if: no touch, fine pointer, not mobile UA, not iPad
+    const isDesktopDevice = !hasTouch && !hasCoarsePointer && !mobileUA && !isIPad;
+
+    // Also check minimum width for small laptops
+    const hasMinWidth = window.innerWidth > 1024;
+
+    return isDesktopDevice && hasMinWidth;
+}
+
 // Wait for DOM
 document.addEventListener('DOMContentLoaded', function() {
     initHeaderTheme();
-    initHeroAnimations();
-    initPromisesAnimation();
-    initSectionAnimations();
+    initScrollTop();
+    initServicesSlider();
+
+    if (isDesktop()) {
+        initHeroAnimations();
+        initPromisesAnimation();
+        initSectionAnimations();
+    } else {
+        initMobileStyles();
+    }
 });
+
+// ===== Mobile/Tablet Static Styles =====
+function initMobileStyles() {
+    // Make all elements visible without animation
+    gsap.set('.hero-title, .hero-subtitle, .hero-buttons', { opacity: 1, y: 0 });
+    gsap.set('.promises-title', { opacity: 1, y: 0 });
+    gsap.set('.promise-card', { position: 'relative', top: 'auto' });
+    gsap.set('.limit-content, .limit-title, .limit-card', { opacity: 1, y: 0 });
+    gsap.set('.solution-content, .solution-title, .solution-card', { opacity: 1, y: 0, scale: 1 });
+    gsap.set('.feature-card', { position: 'relative', top: 'auto' });
+    gsap.set('.features-bg', { opacity: 1 });
+    gsap.set('.companies-content', { opacity: 1, y: 0 });
+    gsap.set('.process .section-title-center-black, .process-step', { opacity: 1, y: 0 });
+    gsap.set('.faq-content', { opacity: 1, y: 0 });
+    gsap.set('.footer-content', { opacity: 1 });
+}
 
 // ===== Header Theme Switching =====
 function initHeaderTheme() {
@@ -38,6 +86,47 @@ function initHeaderTheme() {
     window.addEventListener('scroll', updateHeaderTheme);
     window.addEventListener('resize', updateHeaderTheme);
     updateHeaderTheme();
+}
+
+// ===== Services Slider =====
+function initServicesSlider() {
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.nav-prev');
+    const nextBtn = document.querySelector('.nav-next');
+
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider(newIndex) {
+        // Remove active from all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // Add active to new slide
+        slides[newIndex].classList.add('active');
+        currentIndex = newIndex;
+    }
+
+    // Click on inactive slide to activate
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', () => {
+            if (!slide.classList.contains('active')) {
+                updateSlider(index);
+            }
+        });
+    });
+
+    // Navigation buttons
+    prevBtn.addEventListener('click', () => {
+        const newIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1;
+        updateSlider(newIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const newIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
+        updateSlider(newIndex);
+    });
 }
 
 // ===== Hero Section Animations =====
@@ -95,13 +184,6 @@ function initHeroAnimations() {
 
 // ===== Promises Section Animation =====
 function initPromisesAnimation() {
-    // Disable on mobile/tablet
-    if (window.innerWidth <= 1024) {
-        gsap.set('.promises-title', { opacity: 1, y: 0 });
-        gsap.set('.promise-card', { top: 'auto' });
-        return;
-    }
-
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: '.promises',
@@ -124,28 +206,28 @@ function initPromisesAnimation() {
       .to('.promise-card-2', { top: '40%', duration: 2 }, '+=0.5')
       .to('.promise-card-3', { top: '70%', duration: 2 }, '+=0.5');
 
-    // Fade out content and transition to white
-    tl.to('.promises-title, .promises-cards, .promises-bg', { opacity: 0, duration: 0.8 }, '+=0.3')
-      .to('.promises', {
-          backgroundColor: '#ffffff',
-          duration: 0.5,
-          onStart: () => {
-              document.querySelector('.promises').setAttribute('data-theme', 'light');
-          },
-          onReverseComplete: () => {
-              document.querySelector('.promises').setAttribute('data-theme', 'dark');
-          }
-      }, '<');
+    // Hold after last card - additional scroll before next section
+    tl.to({}, { duration: 2 });
+
+    // Fade out content and transition to white (only for dark theme)
+    const isLightTheme = document.body.classList.contains('theme-light');
+    if (!isLightTheme) {
+        tl.to('.promises-title, .promises-cards, .promises-bg', { opacity: 0, duration: 0.8 }, '+=0.3')
+          .to('.promises', {
+              backgroundColor: '#ffffff',
+              duration: 0.5,
+              onStart: () => {
+                  document.querySelector('.promises').setAttribute('data-theme', 'light');
+              },
+              onReverseComplete: () => {
+                  document.querySelector('.promises').setAttribute('data-theme', 'dark');
+              }
+          }, '<');
+    }
 }
 
 // ===== Limit-Solution Combined Animation =====
 function initLimitSolutionAnimation() {
-    // Disable on mobile/tablet
-    if (window.innerWidth <= 1024) {
-        gsap.set('.limit-content, .limit-solution .solution-content', { opacity: 1 });
-        return;
-    }
-
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: '.limit-solution',
@@ -169,53 +251,78 @@ function initLimitSolutionAnimation() {
         '-=0.5'
     );
 
-    // Hold for a moment
-    tl.to({}, { duration: 0.5 });
+    // Hold after limit content - additional scroll before solution
+    tl.to({}, { duration: 2 });
 
     // Crossfade: limit title out, solution title in
-    tl.to('.limit-title', { opacity: 0, y: -20, duration: 0.8 })
+    tl.to('.limit-title', { opacity: 0, y: -20, duration: 4 })
       .fromTo('.solution-title',
           { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8 },
+          { opacity: 1, y: 0, duration: 2 },
           '<0.3'
       );
+    tl.to({}, { duration: 2 });
 
-    // Crossfade cards one by one
+    // Crossfade cards one by one with hold between each
     tl.to('.limit-card:nth-child(1)', { opacity: 0, scale: 0.95, duration: 0.5 }, '+=0.2')
-      .to('.solution-card:nth-child(1)', { opacity: 1, scale: 1, duration: 0.5 }, '<0.2')
-      .to('.limit-card:nth-child(2)', { opacity: 0, scale: 0.95, duration: 0.5 }, '<0.15')
-      .to('.solution-card:nth-child(2)', { opacity: 1, scale: 1, duration: 0.5 }, '<0.2')
-      .to('.limit-card:nth-child(3)', { opacity: 0, scale: 0.95, duration: 0.5 }, '<0.15')
+      .to('.solution-card:nth-child(1)', { opacity: 1, scale: 1, duration: 0.5 }, '<0.2');
+
+    // Hold after card 1
+    tl.to({}, { duration: 2 });
+
+    tl.to('.limit-card:nth-child(2)', { opacity: 0, scale: 0.95, duration: 0.5 })
+      .to('.solution-card:nth-child(2)', { opacity: 1, scale: 1, duration: 0.5 }, '<0.2');
+
+    // Hold after card 2
+    tl.to({}, { duration: 2 });
+
+    tl.to('.limit-card:nth-child(3)', { opacity: 0, scale: 0.95, duration: 0.5 })
       .to('.solution-card:nth-child(3)', { opacity: 1, scale: 1, duration: 0.5 }, '<0.2');
 
-    // Hold at the end
-    tl.to({}, { duration: 0.5 });
+    // Hold at the end - additional scroll before next section
+    tl.to({}, { duration: 5 });
 }
 
 // ===== Features Section Animation =====
 function initFeaturesAnimation() {
-    // Disable on mobile/tablet
-    if (window.innerWidth <= 1024) {
-        gsap.set('.feature-card', { top: 'auto', position: 'relative' });
-        return;
-    }
-
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: '.features',
             start: 'top top',
-            end: '+=3500',
+            end: '+=6000',
             scrub: 1,
             pin: true,
             anticipatePin: 1
         }
     });
 
-    // Cards continuously scroll from bottom to top and out
-    tl.to('.feature-card-1', { top: '-100vh', duration: 10 })
-      .to('.feature-card-2', { top: '-100vh', duration: 9.5 }, '-=3')
-      .to('.feature-card-3', { top: '-100vh', duration: 8.5 }, '-=3')
-      .to('.feature-card-4', { top: '-100vh', duration: 10 }, '-=3');
+    // Cards rise one by one
+    tl.to('.feature-card-1', { top: '0%', duration: 2 });
+    tl.to('.feature-card-2', { top: '-20%', duration: 2 });
+    tl.to('.feature-card-3', { top: '50%', duration: 2 });
+    tl.to('.feature-card-4', { top: '60%', duration: 2 });
+
+    // Hold all cards together
+    tl.to({}, { duration: 2 });
+
+    // Cards exit one by one
+    tl.to('.feature-card-1', { top: '-100vh', duration: 1 });
+    tl.to('.feature-card-2', { top: '-100vh', duration: 1 });
+    tl.to('.feature-card-3', { top: '-100vh', duration: 1 });
+    tl.to('.feature-card-4', { top: '-100vh', duration: 1 });
+
+    // Fade out background and transition to white
+    tl.to('.features-bg', { opacity: 0, duration: 1 })
+      .to('.features', {
+          backgroundColor: '#ffffff',
+          duration: 0.8,
+          onStart: () => {
+              document.querySelector('.features').setAttribute('data-theme', 'light');
+          },
+          onReverseComplete: () => {
+              document.querySelector('.features').setAttribute('data-theme', 'dark');
+          }
+      }, '<');
 }
 
 // ===== Other Section Animations =====
@@ -226,7 +333,7 @@ function initSectionAnimations() {
     // Features section
     initFeaturesAnimation();
 
-    // Companies section
+    // Companies section with pin
     gsap.fromTo('.companies-content',
         { opacity: 0, y: 50 },
         {
@@ -239,7 +346,15 @@ function initSectionAnimations() {
         }
     );
 
-    // Process section
+    ScrollTrigger.create({
+        trigger: '.companies',
+        start: 'top top',
+        end: '+=500',
+        pin: true,
+        anticipatePin: 1
+    });
+
+    // Process section with pin
     gsap.fromTo('.process .section-title-center-black',
         { opacity: 0, y: 50 },
         {
@@ -263,6 +378,14 @@ function initSectionAnimations() {
             }
         }
     );
+
+    ScrollTrigger.create({
+        trigger: '.process',
+        start: 'top top',
+        end: '+=500',
+        pin: true,
+        anticipatePin: 1
+    });
 
     // FAQ section
     gsap.fromTo('.faq-content',
@@ -289,6 +412,51 @@ function initSectionAnimations() {
             }
         }
     );
+}
+
+// ===== Scroll to Top Button =====
+function initScrollTop() {
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const sections = document.querySelectorAll('section[data-theme], footer[data-theme]');
+
+    if (!scrollTopBtn) return;
+
+    function updateButtonTheme() {
+        const btnRect = scrollTopBtn.getBoundingClientRect();
+        const btnMiddle = btnRect.top + btnRect.height / 2;
+        let currentTheme = 'dark';
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= btnMiddle && rect.bottom > btnMiddle) {
+                currentTheme = section.getAttribute('data-theme');
+            }
+        });
+
+        if (currentTheme === 'light') {
+            scrollTopBtn.classList.add('dark');
+        } else {
+            scrollTopBtn.classList.remove('dark');
+        }
+    }
+
+    // Show/hide button and update theme based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+        updateButtonTheme();
+    });
+
+    // Scroll to top on click
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 console.log('Re:MEET Landing - GSAP Initialized');
