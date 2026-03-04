@@ -303,7 +303,17 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     z-index: 10;
-    padding-top: 10vh;
+    padding-top: 5vh;
+}
+
+.promises-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(233, 212, 255, 0.7);
+    text-align: center;
+    line-height: 1.7;
+    z-index: 10;
+    margin-top: 20px;
 }
 
 .promises-cards {
@@ -311,7 +321,7 @@ body {
     bottom: 0;
     width: 1200px;
     max-width: calc(100% - 80px);
-    height: 500px;
+    height: 600px;
     margin-top: 50px;
 }
 
@@ -325,7 +335,7 @@ body {
     border-radius: 24px 24px 0 0;
     padding: 34px;
     backdrop-filter: blur(10px);
-    height: 600px;
+    height: 550px;
 }
 
 .promise-card-1 {
@@ -342,14 +352,8 @@ body {
 
 .promise-card-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.promise-card-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .promise-card-title {
@@ -358,21 +362,14 @@ body {
     color: var(--white);
 }
 
-.promise-card-badge {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-purple-light);
-}
-
-.promise-card-right {
-    text-align: right;
+.promise-card-desc {
     font-size: 18px;
     font-weight: 500;
     color: #f3e8ff;
     line-height: 1.6;
 }
 
-.promise-card-right p {
+.promise-card-desc p {
     margin: 0;
 }
 
@@ -549,6 +546,116 @@ body {
     font-weight: 500;
     color: var(--white);
     line-height: 1.6;
+}
+
+/* Solution Title Gradient */
+.text-gradient-bold {
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--pink-start) 0%, var(--purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Solution Cards */
+.card-solution {
+    flex: 1;
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: 24px;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.card-solution-top {
+    padding: 60px 30px 40px;
+    flex: 1;
+}
+
+.card-solution h3 {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--re-black);
+    margin-bottom: 20px;
+    line-height: 40px;
+    transition: color 0.4s ease;
+}
+
+.card-solution p {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--gray-text);
+    line-height: 1.6;
+    transition: color 0.4s ease;
+}
+
+.card-solution-bottom {
+    padding: 0 30px 40px;
+    text-align: left;
+}
+
+.card-solution-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--gray-border);
+    margin-bottom: 20px;
+    transition: background 0.4s ease;
+}
+
+.card-solution-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-text);
+    margin-bottom: 8px;
+    transition: color 0.4s ease;
+}
+
+.card-solution-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: start;
+    gap: 8px;
+}
+
+.card-solution-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--re-black);
+    line-height: 1.2;
+    transition: color 0.4s ease;
+}
+
+.card-solution-sub {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray-text);
+    transition: color 0.4s ease;
+}
+
+/* Solution Card Hover - Purple Gradient */
+.card-solution:hover {
+    background: linear-gradient(135deg, var(--pink-start) 0%, var(--pink-end) 100%);
+    border-color: transparent;
+    box-shadow: 0px 13px 29px rgba(0, 0, 0, 0.08),
+                0px 52px 52px rgba(0, 0, 0, 0.07),
+                0px 117px 70px rgba(0, 0, 0, 0.04);
+}
+
+.card-solution:hover h3,
+.card-solution:hover p,
+.card-solution:hover .card-solution-label,
+.card-solution:hover .card-solution-number,
+.card-solution:hover .card-solution-sub {
+    color: var(--white);
+}
+
+.card-solution:hover .card-solution-divider {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* ===== Services Slider Section ===== */
@@ -1027,6 +1134,23 @@ body {
     line-height: 75px;
     color: var(--re-black);
     text-align: center;
+}
+
+.process-desc {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-text);
+    text-align: center;
+    margin-top: -48px;
+    line-height: 1.6;
+}
+
+.process-caption {
+    font-size: 14px;
+    font-weight: 400;
+    color: #9ca3af;
+    text-align: center;
+    margin-top: -48px;
 }
 
 .process-steps {
@@ -1511,7 +1635,7 @@ body {
     .hero {
         height: auto;
         min-height: auto;
-        padding: 25vh 24px 25vh;
+        padding: 120px 24px 80px;
     }
 
     .promises,
@@ -1523,7 +1647,7 @@ body {
     .process {
         height: auto;
         min-height: auto;
-        padding: 20vh 24px;
+        padding: 80px 24px;
     }
 
     /* Services section mobile - switch to cards */
@@ -1543,7 +1667,7 @@ body {
     .faq {
         height: auto;
         min-height: auto;
-        padding: 20vh 0;
+        padding: 80px 0;
     }
 
     .companies-content,
@@ -1564,7 +1688,7 @@ body {
     /* Limit-Solution section mobile */
     .limit-solution {
         flex-direction: column;
-        gap: 20vh;
+        gap: 80px;
     }
 
     .limit-content,
@@ -1575,6 +1699,8 @@ body {
         transform: none;
         width: 100%;
         max-width: 100%;
+        align-items: stretch;
+        gap: 24px;
     }
 
     .limit-solution .solution-content {
@@ -1585,8 +1711,16 @@ body {
     .solution-title {
         opacity: 1 !important;
         transform: none !important;
-        display: flex;
-        flex-direction: column;
+        display: block;
+        line-height: 1.3;
+    }
+
+    .limit-title br {
+        display: none;
+    }
+
+    .solution-title br {
+        line-height: 0.5;
     }
 
     .limit-card,
@@ -1600,11 +1734,13 @@ body {
     .limit-solution .solution-cards {
         flex-direction: column;
         gap: 16px;
-        max-width: 90%;
+        width: 100%;
+        max-width: 100%;
     }
 
     .card-gray,
-    .card-gradient-pink {
+    .card-gradient-pink,
+    .card-solution {
         width: 100%;
     }
 
@@ -1720,6 +1856,8 @@ body {
     }
 
     .process .section-title-center-black,
+    .process-desc,
+    .process-caption,
     .process-step {
         opacity: 1 !important;
         transform: none !important;
@@ -1739,6 +1877,29 @@ body {
 
     .process-arrow {
         display: none;
+    }
+
+    .process {
+        gap: 40px;
+    }
+
+    .process-desc {
+        margin-top: -16px;
+        font-size: 16px;
+    }
+
+    .process-caption {
+        margin-top: -16px;
+        font-size: 13px;
+    }
+
+    .card-solution h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .card-solution-number {
+        font-size: 28px;
     }
 
     .faq {
@@ -1825,6 +1986,33 @@ body {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding: 100px 20px 60px;
+    }
+
+    .promises,
+    .limit-solution,
+    .limitation,
+    .solution,
+    .features,
+    .services,
+    .process {
+        padding: 60px 20px;
+    }
+
+    .companies,
+    .faq {
+        padding: 60px 0;
+    }
+
+    .limit-solution {
+        gap: 60px;
+    }
+
+    .footer {
+        padding: 60px 20px;
+    }
+
     .header-inner {
         padding: 16px 20px;
         min-height: 70px;
@@ -1876,8 +2064,8 @@ body {
     .section-title-white,
     .promises-title,
     .features-title {
-        font-size: 32px;
-        line-height: 42px;
+        font-size: 28px;
+        line-height: 38px;
     }
 
     .feature-card{
@@ -1934,6 +2122,78 @@ body {
         padding: 40px 30px;
     }
 
+    .process {
+        gap: 28px;
+    }
+
+    .process-desc {
+        margin-top: -10px;
+        font-size: 15px;
+    }
+
+    .process-caption {
+        margin-top: -10px;
+        font-size: 12px;
+    }
+
+    .promises-subtitle {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .faq-subtitle {
+        font-size: 18px;
+    }
+
+    .card-solution h3 {
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 14px;
+    }
+
+    .card-solution p {
+        font-size: 15px;
+    }
+
+    .card-solution-top {
+        padding: 40px 24px 30px;
+    }
+
+    .card-solution-bottom {
+        padding: 0 24px 30px;
+    }
+
+    .card-solution-number {
+        font-size: 24px;
+    }
+
+    .promises-cards,
+    .limit-cards,
+    .limit-solution .solution-cards {
+        max-width: 100%;
+    }
+
+    .card-gray,
+    .card-gradient-pink {
+        padding: 40px 24px;
+    }
+
+    .card-gray h3,
+    .card-gradient-pink h3 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .card-gray p,
+    .card-gradient-pink p {
+        font-size: 15px;
+    }
+
+    .footer-title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+
     .faq-card {
         /* width: 100%; */
         padding: 24px;
@@ -1942,11 +2202,6 @@ body {
     .faq-question {
         font-size: 18px;
         line-height: 28px;
-    }
-
-    .footer-title {
-        font-size: 28px;
-        line-height: 38px;
     }
 
     .footer-logo {
@@ -2041,6 +2296,8 @@ body {
 
     /* Other sections */
     .process .section-title-center-black,
+    .process-desc,
+    .process-caption,
     .process-step,
     .faq-content {
         opacity: 1 !important;

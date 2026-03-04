@@ -32,6 +32,24 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollTop();
     initServicesSlider();
 
+<<<<<<< HEAD
+    ScrollTrigger.matchMedia({
+        // Desktop - full GSAP animations with pin
+        "(min-width: 1025px)": function() {
+            if (isDesktop()) {
+                initHeroAnimations();
+                initPromisesAnimation();
+                initSectionAnimations();
+            } else {
+                initMobileStyles();
+            }
+        },
+        // Mobile/Tablet - static styles, no pin-spacer
+        "(max-width: 1024px)": function() {
+            initMobileStyles();
+        }
+    });
+=======
     if (isDesktop()) {
         initHeroAnimations();
         initPromisesAnimation();
@@ -39,11 +57,20 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         initMobileStyles();
     }
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
 });
 
 // ===== Mobile/Tablet Static Styles =====
 function initMobileStyles() {
     // Make all elements visible without animation
+<<<<<<< HEAD
+    gsap.set('.hero-title, .hero-subtitle, .hero-label, .hero-cta, .hero-right, .hero-bottom', { opacity: 1, y: 0 });
+    gsap.set('.promises-title, .promises-subtitle', { opacity: 1, y: 0 });
+    gsap.set('.promise-card', { position: 'relative', top: 'auto' });
+    gsap.set('.limit-content, .limit-title, .limit-card', { opacity: 1, y: 0 });
+    gsap.set('.solution-content, .solution-title, .solution-desc, .solution-card', { opacity: 1, y: 0, scale: 1 });
+    gsap.set('.process .section-title-center-black, .process-desc, .process-caption, .process-step', { opacity: 1, y: 0 });
+=======
     gsap.set('.hero-title, .hero-subtitle, .hero-buttons', { opacity: 1, y: 0 });
     gsap.set('.promises-title', { opacity: 1, y: 0 });
     gsap.set('.promise-card', { position: 'relative', top: 'auto' });
@@ -53,6 +80,7 @@ function initMobileStyles() {
     gsap.set('.features-bg', { opacity: 1 });
     gsap.set('.companies-content', { opacity: 1, y: 0 });
     gsap.set('.process .section-title-center-black, .process-step', { opacity: 1, y: 0 });
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
     gsap.set('.faq-content', { opacity: 1, y: 0 });
     gsap.set('.footer-content', { opacity: 1 });
 }
@@ -143,10 +171,35 @@ function initHeroAnimations() {
         { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.6 }
     );
 
+<<<<<<< HEAD
+    // Hero label fade in
+    gsap.fromTo('.hero-label',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.1 }
+    );
+
+    // Hero CTA fade in
+    gsap.fromTo('.hero-cta',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.8 }
+    );
+
+    // Hero right cards fade in
+    gsap.fromTo('.hero-right',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.5 }
+    );
+
+    // Hero bottom stats fade in
+    gsap.fromTo('.hero-bottom',
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: 'power3.out', delay: 1.2 }
+=======
     // Hero buttons fade in
     gsap.fromTo('.hero-buttons',
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.9 }
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
     );
 
     // Hero bg mouse parallax
@@ -201,6 +254,16 @@ function initPromisesAnimation() {
         { opacity: 1, y: 0, duration: 1 }
     );
 
+<<<<<<< HEAD
+    // Subtitle fade in
+    tl.fromTo('.promises-subtitle',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1 },
+        '-=0.5'
+    );
+
+=======
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
     // Cards stacking animation
     tl.to('.promise-card-1', { top: '10%', duration: 2 }, '+=0.5')
       .to('.promise-card-2', { top: '40%', duration: 2 }, '+=0.5')
@@ -212,7 +275,11 @@ function initPromisesAnimation() {
     // Fade out content and transition to white (only for dark theme)
     const isLightTheme = document.body.classList.contains('theme-light');
     if (!isLightTheme) {
+<<<<<<< HEAD
+        tl.to('.promises-title, .promises-subtitle, .promises-cards, .promises-bg', { opacity: 0, duration: 0.8 }, '+=0.3')
+=======
         tl.to('.promises-title, .promises-cards, .promises-bg', { opacity: 0, duration: 0.8 }, '+=0.3')
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
           .to('.promises', {
               backgroundColor: '#ffffff',
               duration: 0.5,
@@ -254,12 +321,24 @@ function initLimitSolutionAnimation() {
     // Hold after limit content - additional scroll before solution
     tl.to({}, { duration: 2 });
 
+<<<<<<< HEAD
+    // Crossfade: limit title out, solution title + desc in
+=======
     // Crossfade: limit title out, solution title in
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
     tl.to('.limit-title', { opacity: 0, y: -20, duration: 4 })
       .fromTo('.solution-title',
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 2 },
           '<0.3'
+<<<<<<< HEAD
+      )
+      .fromTo('.solution-desc',
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 1.5 },
+          '-=1'
+=======
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
       );
     tl.to({}, { duration: 2 });
 
@@ -285,6 +364,11 @@ function initLimitSolutionAnimation() {
 
 // ===== Features Section Animation =====
 function initFeaturesAnimation() {
+<<<<<<< HEAD
+    if (!document.querySelector('.features')) return;
+
+=======
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: '.features',
@@ -334,6 +418,29 @@ function initSectionAnimations() {
     initFeaturesAnimation();
 
     // Companies section with pin
+<<<<<<< HEAD
+    if (document.querySelector('.companies')) {
+        gsap.fromTo('.companies-content',
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1, y: 0, duration: 1,
+                scrollTrigger: {
+                    trigger: '.companies',
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
+
+        ScrollTrigger.create({
+            trigger: '.companies',
+            start: 'top top',
+            end: '+=500',
+            pin: true,
+            anticipatePin: 1
+        });
+    }
+=======
     gsap.fromTo('.companies-content',
         { opacity: 0, y: 50 },
         {
@@ -353,6 +460,7 @@ function initSectionAnimations() {
         pin: true,
         anticipatePin: 1
     });
+>>>>>>> 8461f679e05787377dce20f5e371d4402bba2799
 
     // Process section with pin
     gsap.fromTo('.process .section-title-center-black',
