@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "(min-width: 1025px)": function() {
             if (isDesktop()) {
                 initHeroAnimations();
+                initHeroPin();
                 initPromisesAnimation();
                 initSectionAnimations();
             } else {
@@ -204,6 +205,22 @@ function initHeroAnimations() {
             });
         });
     }
+}
+
+// ===== Hero Section Pin (light theme split layout) =====
+function initHeroPin() {
+    const heroSplit = document.querySelector('.hero-split');
+    if (!heroSplit) return;
+
+    // Pin hero section
+    ScrollTrigger.create({
+        trigger: '.hero-split',
+        start: 'top top',
+        end: '+=500',
+        pin: true,
+        anticipatePin: 1
+    });
+
 }
 
 // ===== Promises Section Animation =====
